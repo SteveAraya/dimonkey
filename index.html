@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiMonkey — Building Solutions That Matter</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="DiMonkey is a Latin American startup building digital products that transform people's lives. Our first product: ImHomi, the app to find your ideal home in Costa Rica.">
+  <meta name="keywords" content="DiMonkey, startup, Costa Rica, ImHomi, digital products, rent, apartments, Latin American unicorn">
+  <meta name="author" content="DiMonkey">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DiMonkey — Building Solutions That Matter">
+  <meta property="og:description" content="Latin American startup building digital products that transform lives. We started in Costa Rica, but our vision is global.">
+  <meta property="og:image" content="https://dimonkey.com/og-image.png">
+  <meta property="og:url" content="https://dimonkey.com">
+  <meta property="og:site_name" content="DiMonkey">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DiMonkey — Building Solutions That Matter">
+  <meta name="twitter:description" content="Latin American startup building digital products that transform lives.">
+  <meta name="twitter:image" content="https://dimonkey.com/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237B2FFF'/%3E%3Cstop offset='100%25' stop-color='%2300E5FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230A0A0F'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='70' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ====== HEADER / NAV ====== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">DiMonkey</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" data-i18n="nav.home">Home</a></li>
+        <li><a href="#productos" data-i18n="nav.products">Products</a></li>
+        <li><a href="#vision" data-i18n="nav.vision">Vision</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Language Toggle -->
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span class="lang-option active" data-lang="en">EN</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-option" data-lang="es">ES</span>
+        </button>
+        <a href="#contacto" class="btn-outline nav-cta" data-i18n="nav.cta">Get in touch</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="inicio">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-content container">
+      <span class="badge animate-on-scroll" data-animation="fade-in" data-i18n="hero.badge">🚀 The next unicorn is being built</span>
+      <h1 class="hero-title animate-on-scroll" data-animation="slide-up" data-i18n="hero.title" data-i18n-html="true">
+        Building solutions<br><span class="gradient-text">that matter</span>
+      </h1>
+      <p class="hero-subtitle animate-on-scroll" data-animation="slide-up" data-delay="100" data-i18n="hero.subtitle">
+        We are a Latin American startup building digital products that transform people's lives. We started in Costa Rica, but our vision is global.
+      </p>
+      <div class="hero-buttons animate-on-scroll" data-animation="slide-up" data-delay="200">
+        <a href="#productos" class="btn-primary" data-i18n="hero.btn_products">See our products</a>
+        <a href="#vision" class="btn-secondary" data-i18n="hero.btn_vision">Our vision</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ====== PRODUCTOS ====== -->
+  <section class="section products" id="productos">
+    <div class="container">
+      <span class="section-label animate-on-scroll" data-animation="fade-in" data-i18n="products.label">Our Solutions</span>
+      <h2 class="section-title animate-on-scroll" data-animation="slide-up" data-i18n="products.title" data-i18n-html="true">
+        Products that make<br><span class="gradient-text">a difference</span>
+      </h2>
+
+      <div class="products-grid">
+        <!-- ImHomi Card -->
+        <div class="product-card glass-card animate-on-scroll" data-animation="slide-up">
+          <div class="product-card-glow"></div>
+          <div class="product-header">
+            <div class="product-logo">
+              <span class="product-logo-icon">🏠</span>
+              <h3>ImHomi</h3>
+            </div>
+            <div class="product-badges">
+              <span class="badge-small">🌎 Costa Rica</span>
+              <span class="badge-small badge-coming">📱 Coming soon</span>
+            </div>
+          </div>
+          <p class="product-description" data-i18n="products.imhomi_desc">
+            The app to find your ideal home in Costa Rica. Search apartments and houses with pet and roommate filters.
+          </p>
+          <a href="https://imhomi.com" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">
+            <span data-i18n="products.learn_more">Learn more</span> <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Nomi Card -->
+        <div class="product-card glass-card animate-on-scroll" data-animation="slide-up" data-delay="150">
+          <div class="product-card-glow glow-cyan"></div>
+          <div class="product-header">
+            <div class="product-logo">
+              <span class="product-logo-icon">💰</span>
+              <h3>Nomi</h3>
+            </div>
+            <div class="product-badges">
+              <span class="badge-small">🤖 AI-powered</span>
+              <span class="badge-small badge-dev" data-i18n="products.nomi_status">🔨 In development</span>
+            </div>
+          </div>
+          <p class="product-description" data-i18n="products.nomi_desc">
+            Your AI-powered finance companion. Track expenses, savings, and budgets. Snap a photo of any receipt and let AI categorize it instantly.
+          </p>
+          <div class="product-features">
+            <span class="product-feature" data-i18n="products.nomi_f1">📊 Smart charts</span>
+            <span class="product-feature" data-i18n="products.nomi_f2">📸 Receipt scanner</span>
+            <span class="product-feature" data-i18n="products.nomi_f3">🐜 Ant expense alerts</span>
+          </div>
+        </div>
+
+        <!-- Coming Soon Card -->
+        <div class="product-card glass-card card-coming-soon animate-on-scroll" data-animation="slide-up" data-delay="300">
+          <div class="product-card-glow"></div>
+          <div class="product-header">
+            <div class="product-logo">
+              <span class="product-logo-icon">✨</span>
+              <h3 data-i18n="products.next_title">Next Solution</h3>
+            </div>
+            <div class="product-badges">
+              <span class="badge-small badge-dev" data-i18n="products.in_dev">🔨 In development</span>
+            </div>
+          </div>
+          <p class="product-description" data-i18n="products.next_desc">
+            Something big is coming. Stay tuned.
+          </p>
+          <div class="coming-soon-shimmer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== VISIÓN ====== -->
+  <section class="section vision" id="vision">
+    <div class="container">
+      <span class="section-label animate-on-scroll" data-animation="fade-in" data-i18n="vision.label">Why DiMonkey?</span>
+      <h2 class="section-title animate-on-scroll" data-animation="slide-up" data-i18n="vision.title" data-i18n-html="true">
+        Built with <span class="gradient-text">purpose</span>
+      </h2>
+
+      <div class="vision-grid">
+        <div class="vision-card glass-card animate-on-scroll" data-animation="slide-up">
+          <div class="vision-icon">🎯</div>
+          <h3 data-i18n="vision.problem_title">Problem First</h3>
+          <p data-i18n="vision.problem_desc">We identify real problems before writing a single line of code.</p>
+        </div>
+        <div class="vision-card glass-card animate-on-scroll" data-animation="slide-up" data-delay="100">
+          <div class="vision-icon">🌎</div>
+          <h3 data-i18n="vision.latam_title">Latin America & Beyond</h3>
+          <p data-i18n="vision.latam_desc">We were born in Costa Rica but we build for the world.</p>
+        </div>
+        <div class="vision-card glass-card animate-on-scroll" data-animation="slide-up" data-delay="200">
+          <div class="vision-icon">🦄</div>
+          <h3 data-i18n="vision.unicorn_title">Unicorn Mindset</h3>
+          <p data-i18n="vision.unicorn_desc">We don't build apps, we build the future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== STATS ====== -->
+  <section class="section stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll" data-animation="fade-in">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label" data-i18n="stats.product">Products in progress</span>
+        </div>
+        <div class="stat-item animate-on-scroll" data-animation="fade-in" data-delay="100">
+          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-label" data-i18n="stats.country">Country (for now)</span>
+        </div>
+        <div class="stat-item animate-on-scroll" data-animation="fade-in" data-delay="200">
+          <span class="stat-number stat-infinity">∞</span>
+          <span class="stat-label" data-i18n="stats.problems">Problems to solve</span>
+        </div>
+        <div class="stat-item animate-on-scroll" data-animation="fade-in" data-delay="300">
+          <span class="stat-number" data-target="2025">0</span>
+          <span class="stat-label" data-i18n="stats.founded">Year founded</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="section cta" id="contacto">
+    <div class="cta-bg"></div>
+    <div class="container cta-content">
+      <h2 class="cta-title animate-on-scroll" data-animation="slide-up" data-i18n="cta.title" data-i18n-html="true">
+        Want to be part of<br><span class="gradient-text">the journey?</span>
+      </h2>
+      <p class="cta-subtitle animate-on-scroll" data-animation="slide-up" data-delay="100" data-i18n="cta.subtitle">
+        We keep building. If you have an idea, want to collaborate, or simply want to know what's next — write to us.
+      </p>
+      <a href="mailto:hola@dimonkey.com" class="btn-primary btn-lg animate-on-scroll" data-animation="slide-up" data-delay="200">
+        hola@dimonkey.com
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-top">
+        <a href="#inicio" class="logo">DiMonkey</a>
+        <div class="footer-links">
+          <a href="https://imhomi.com" target="_blank" rel="noopener noreferrer">ImHomi</a>
+          <a href="#contacto" data-i18n="footer.privacy">Privacy</a>
+          <a href="#contacto" data-i18n="footer.contact">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter" class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16h-4.267z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright" data-i18n-html="true">&copy; <span id="currentYear"></span> DiMonkey. All rights reserved.</p>
+        <p class="footer-love" data-i18n="footer.love">Built with 💜 from Costa Rica</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
