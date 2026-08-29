@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Fotos originales de los fundadores: las versiones web estan en team/*.jpg
+team/src/

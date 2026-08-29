@@ -69,7 +69,29 @@
           "@type": "Organization",
           "name": "ImHomi",
           "url": "https://www.imhomi.com/"
-        }
+        },
+        "founder": [
+          { "@id": "https://www.dimonkey.com/#steve" },
+          { "@id": "https://www.dimonkey.com/#alonso" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.dimonkey.com/#steve",
+        "name": "Steve Araya",
+        "jobTitle": "Co-founder & CEO",
+        "image": "https://www.dimonkey.com/team/steve.jpg",
+        "sameAs": ["https://www.linkedin.com/in/adelso-steve-araya-sol%C3%B3rzano-9661991a6/"],
+        "worksFor": { "@id": "https://www.dimonkey.com/#organization" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.dimonkey.com/#alonso",
+        "name": "Alonso Rojas",
+        "jobTitle": "Co-founder & CTO",
+        "image": "https://www.dimonkey.com/team/alonso.jpg",
+        "sameAs": ["https://www.linkedin.com/in/jorge-alonso-rojas-p%C3%A9rez-software-developer/"],
+        "worksFor": { "@id": "https://www.dimonkey.com/#organization" }
       },
       {
         "@type": "WebSite",
@@ -100,6 +122,7 @@
         <li><a href="#inicio" data-i18n="nav.home">Home</a></li>
         <li><a href="#productos" data-i18n="nav.products">Products</a></li>
         <li><a href="#vision" data-i18n="nav.vision">Vision</a></li>
+        <li><a href="#equipo" data-i18n="nav.team">Team</a></li>
         <li><a href="#contacto" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
@@ -236,6 +259,63 @@
           <h3 data-i18n="vision.unicorn_title">Unicorn Mindset</h3>
           <p data-i18n="vision.unicorn_desc">We don't build apps, we build the future.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EQUIPO ====== -->
+  <section class="section team" id="equipo">
+    <div class="container">
+      <span class="section-label animate-on-scroll" data-animation="fade-in" data-i18n="team.label">The people behind it</span>
+      <h2 class="section-title animate-on-scroll" data-animation="slide-up" data-i18n="team.title" data-i18n-html="true">
+        Two people,<br><span class="gradient-text">one obsession</span>
+      </h2>
+      <p class="team-intro animate-on-scroll" data-animation="slide-up" data-delay="100" data-i18n="team.intro">
+        We both build and we both bring ideas. The titles only say where the final call lands.
+      </p>
+
+      <div class="team-grid">
+        <!-- Founder 1 -->
+        <article class="founder-card glass-card animate-on-scroll" data-animation="slide-up">
+          <div class="product-card-glow"></div>
+          <div class="founder-avatar">
+            <div class="founder-avatar-inner">
+              <img src="team/steve.jpg" alt="Steve Araya, co-founder & CEO de DiMonkey" width="256" height="256" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3 class="founder-name">Steve Araya</h3>
+          <p class="founder-role" data-i18n="team.f1_role">Co-founder &amp; CEO</p>
+          <span class="founder-divider"></span>
+          <div class="founder-socials">
+            <a href="https://www.linkedin.com/in/adelso-steve-araya-sol%C3%B3rzano-9661991a6/" class="social-icon" aria-label="LinkedIn — Steve Araya" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+            </a>
+            <a href="mailto:hola@dimonkey.com" class="social-icon" aria-label="Email — Steve Araya">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Founder 2 -->
+        <article class="founder-card founder-cyan glass-card animate-on-scroll" data-animation="slide-up" data-delay="150">
+          <div class="product-card-glow glow-cyan"></div>
+          <div class="founder-avatar founder-avatar-cyan">
+            <div class="founder-avatar-inner">
+              <img src="team/alonso.jpg" alt="Alonso Rojas, co-founder & CTO de DiMonkey" width="256" height="256" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3 class="founder-name">Alonso Rojas</h3>
+          <p class="founder-role" data-i18n="team.f2_role">Co-founder &amp; CTO</p>
+          <span class="founder-divider"></span>
+          <div class="founder-socials">
+            <a href="https://www.linkedin.com/in/jorge-alonso-rojas-p%C3%A9rez-software-developer/" class="social-icon" aria-label="LinkedIn — Alonso Rojas" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+            </a>
+            <a href="mailto:hola@dimonkey.com" class="social-icon" aria-label="Email — Alonso Rojas">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>

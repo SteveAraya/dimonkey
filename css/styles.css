@@ -698,6 +698,129 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==============================
+   TEAM
+   ============================== */
+.team .section-title {
+  margin-bottom: 20px;
+}
+
+.team-intro {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 560px;
+  margin-bottom: 56px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.founder-card {
+  padding: 44px 32px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.founder-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(123, 47, 255, 0.3);
+}
+
+.founder-card.founder-cyan:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+}
+
+.founder-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--gradient-main);
+  margin-bottom: 22px;
+  transition: transform var(--transition-base);
+}
+
+.founder-avatar-cyan {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+}
+
+.founder-card:hover .founder-avatar {
+  transform: scale(1.06);
+}
+
+.founder-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.founder-avatar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fondos desaturados para que las dos fotos se lean como un set;
+   recuperan color al hover. Solo donde hay hover real: en tactil
+   no habria forma de devolverles el color. */
+@media (hover: hover) and (pointer: fine) {
+  .founder-avatar-inner img {
+    filter: grayscale(1) contrast(1.08) brightness(0.92);
+    transition: filter var(--transition-base);
+  }
+
+  .founder-card:hover .founder-avatar-inner img {
+    filter: grayscale(0) contrast(1) brightness(1);
+  }
+}
+
+.founder-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.founder-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.founder-divider {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--glass-border);
+  margin: 24px 0;
+}
+
+.founder-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.founder-socials .social-icon {
+  width: 36px;
+  height: 36px;
+}
+
+/* ==============================
    STATS
    ============================== */
 .stats {
@@ -936,7 +1059,8 @@ img { max-width: 100%; display: block; }
     margin-bottom: 40px;
   }
 
-  .products-grid {
+  .products-grid,
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
