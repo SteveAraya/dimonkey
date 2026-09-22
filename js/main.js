@@ -111,7 +111,7 @@
       'footer.copyright': '© ' + new Date().getFullYear() + ' DiMonkey. Todos los derechos reservados.',
       'footer.love': 'Hecho con 💜 desde Costa Rica',
       'footer.support': 'Apoyanos ☕',
-      'support.title': 'Cargale <span class="gradient-text">combustible</span> al mono',
+      'support.title': 'Cargale combustible al <span class="gradient-text">mono</span>',
       'support.text': 'Mantener estos proyectos vivos tiene costos reales: servidores, dominios y muchas horas de trabajo. Si algo de lo que hacemos te sirve, podés invitarnos un café. Es totalmente voluntario y significa muchísimo.',
       'support.button': 'Invitanos un café',
       'support.note': 'Pago seguro con Ko-fi · PayPal o tarjeta'
