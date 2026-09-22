@@ -722,9 +722,17 @@ img { max-width: 100%; display: block; }
   /* En pantallas angostas el menu ocupa el lado del nombre */
   .hero-monkey {
     left: auto;
-    right: 26px;
-    width: 80px;
+    right: 22px;
+    width: 68px;
   }
+
+  /* En celular el contenido arranca desde arriba y deja libre la franja
+     del mono: centrado, en pantallas bajas se le montaba al badge. */
+  .hero {
+    align-items: flex-start;
+  }
+
+
 
   .monkey-branch {
     width: 128%;
@@ -1647,7 +1655,8 @@ img { max-width: 100%; display: block; }
   }
 
   .hero-content {
-    padding: 40px 20px;
+    /* El espacio de arriba es la franja que ocupa el mono colgado */
+    padding: 124px 20px 40px;
   }
 
   .section {
