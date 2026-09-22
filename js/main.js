@@ -197,6 +197,7 @@
     initScrollAnimations();
     initStatCounters();
     initSupportSpotlight();
+    initHeroMonkey();
   }
 
   /* =========================
@@ -471,6 +472,92 @@
     }
 
     requestAnimationFrame(step);
+  }
+
+  /* =========================
+     HERO MONKEY
+     ========================= */
+  function initHeroMonkey() {
+    var monkey = document.querySelector('#heroMonkey');
+    if (!monkey) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var svg = monkey.querySelector('.monkey');
+    var STATES = ['is-wink', 'is-tongue', 'is-shy'];
+    var stateIndex = 0;
+    var taps = 0;
+    var tapTimer = null;
+    var stateTimer = null;
+
+    // Las pupilas (y un poco la cabeza) siguen el cursor
+    if (finePointer && !reduced) {
+      window.addEventListener('mousemove', function (e) {
+        var box = monkey.getBoundingClientRect();
+        var dx = (e.clientX - (box.left + box.width / 2)) / window.innerWidth;
+        var dy = (e.clientY - (box.top + box.height / 2)) / window.innerHeight;
+        monkey.style.setProperty('--eye-x', clamp(dx * 26, -5, 5).toFixed(2) + 'px');
+        monkey.style.setProperty('--eye-y', clamp(dy * 26, -5, 5).toFixed(2) + 'px');
+        svg.style.setProperty('--monkey-tilt', clamp(dx * 14, -6, 6).toFixed(2) + 'deg');
+      });
+    }
+
+    monkey.addEventListener('click', react);
+
+    // Al bajar, el mono se sube a la barra y se queda sentado
+    var perched = false;
+    window.addEventListener('scroll', function () {
+      var shouldPerch = window.scrollY > 140;
+      if (shouldPerch === perched) return;
+      perched = shouldPerch;
+      monkey.classList.toggle('is-perched', perched);
+    }, { passive: true });
+
+    function react() {
+      taps++;
+      clearTimeout(tapTimer);
+      tapTimer = setTimeout(function () { taps = 0; }, 2500);
+
+      if (taps >= 4) {
+        taps = 0;
+        wave();
+        return;
+      }
+
+      clearTimeout(stateTimer);
+      STATES.forEach(function (s) { monkey.classList.remove(s); });
+
+      // Reinicia la animacion del estado antes de volver a aplicarlo
+      void monkey.offsetWidth;
+
+      var state = STATES[stateIndex % STATES.length];
+      stateIndex++;
+      monkey.classList.add(state);
+      stateTimer = setTimeout(function () {
+        monkey.classList.remove(state);
+      }, state === 'is-shy' ? 1700 : 1400);
+    }
+
+    function wave() {
+      STATES.forEach(function (s) { monkey.classList.remove(s); });
+      monkey.classList.remove('is-waving');
+      void monkey.offsetWidth;
+      monkey.classList.add('is-waving');
+      setTimeout(function () {
+        monkey.classList.remove('is-waving');
+      }, 2200);
+    }
+
+    // Saluda solo una vez, al entrar
+    if (!reduced) {
+      setTimeout(function () {
+        if (!monkey.classList.contains('is-perched')) wave();
+      }, 1400);
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
   }
 
   /* =========================

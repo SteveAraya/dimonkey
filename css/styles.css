@@ -288,6 +288,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -434,6 +435,7 @@ img { max-width: 100%; display: block; }
   padding: 60px 24px;
 }
 
+
 .hero-title {
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 700;
@@ -456,6 +458,305 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 40px;
+}
+
+/* ---- Hero Monkey: mascota colgada de la barra ---- */
+/* Vive dentro del header: cuelga del borde de la barra, al lado del nombre */
+.hero-monkey {
+  position: absolute;
+  /* Las manos quedan justo sobre la linea del header */
+  top: calc(var(--header-height) - 8px);
+  left: 116px;
+  z-index: 2;
+  width: clamp(92px, 9vw, 124px);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: width var(--transition-slow), top var(--transition-slow), left var(--transition-slow);
+}
+
+/* Arriba del todo el header es transparente, asi que le damos una rama
+   de la que agarrarse; al bajar se agarra de la barra real. */
+.monkey-branch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 190%;
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, rgba(123, 47, 255, 0.85) 25%, rgba(0, 229, 255, 0.9) 50%, rgba(255, 107, 53, 0.7) 75%, transparent);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  animation: monkey-branch-flex 4.5s ease-in-out infinite;
+}
+
+/* Cede apenas con el peso del mono, al ritmo del balanceo */
+@keyframes monkey-branch-flex {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(1.5px); }
+}
+
+.header.scrolled .monkey-branch,
+.hero-monkey.is-perched .monkey-branch {
+  opacity: 0;
+}
+
+/* Al bajar se hace chiquito y se sienta en la barra, solo mirando */
+.hero-monkey.is-perched .monkey-body {
+  animation: none;
+}
+
+.hero-monkey.is-perched {
+  top: calc(var(--header-height) - 47px);
+  /* Sentado se corre a la derecha para no taparle la "y" al nombre */
+  left: 162px;
+  width: 55px;
+}
+
+.monkey,
+.monkey-sit {
+  overflow: visible;
+  transition: opacity 0.35s ease, transform var(--transition-base);
+}
+
+.monkey-sit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(10px) scale(0.85);
+  pointer-events: none;
+}
+
+.hero-monkey.is-perched .monkey {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.9);
+}
+
+.hero-monkey.is-perched .monkey-sit {
+  opacity: 1;
+  transform: none;
+  animation: monkey-sit-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes monkey-sit-in {
+  0% { transform: translateY(26px) scale(0.6); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+/* Respira mientras mira */
+.hero-monkey.is-perched .monkey-sit-body {
+  animation: monkey-breathe 3.4s ease-in-out infinite;
+  transform-origin: 100px 160px;
+}
+
+@keyframes monkey-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.02, 0.98); }
+}
+
+.monkey {
+  width: 100%;
+  display: block;
+  /* Al saludar el brazo se sale del viewBox: sin esto se corta */
+  overflow: visible;
+  filter: drop-shadow(0 14px 34px rgba(123, 47, 255, 0.35));
+  transform: rotate(var(--monkey-tilt, 0deg));
+  transform-origin: 50% 10%;
+  transition: transform var(--transition-base);
+}
+
+/* Se mece colgado de la rama, que se queda quieta */
+.monkey-body {
+  transform-origin: 120px 20px;
+  animation: monkey-swing 4.5s ease-in-out infinite;
+}
+
+@keyframes monkey-swing {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+.monkey-arm {
+  transform-box: fill-box;
+  transform-origin: 50% 6%;
+  animation: monkey-arms 4.5s ease-in-out infinite;
+}
+
+.monkey-arm-right {
+  animation-delay: 0.3s;
+}
+
+@keyframes monkey-arms {
+  0%, 100% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+}
+
+/* Las caras del poligono respiran en desfase para que la cabeza no se vea plana */
+.facet {
+  opacity: var(--facet-o, 0.06);
+  animation: monkey-facet 5s ease-in-out infinite;
+}
+
+.facet:nth-child(2n) { animation-delay: 0.8s; }
+.facet:nth-child(3n) { animation-delay: 1.6s; }
+
+@keyframes monkey-facet {
+  0%, 100% { opacity: var(--facet-o, 0.06); }
+  50% { opacity: calc(var(--facet-o, 0.06) * 1.8); }
+}
+
+/* Parpadeo */
+.monkey-eye {
+  /* Sin transform-box, el 50% se mide desde el centro del SVG y el ojo
+     se desplaza al cerrarse en vez de cerrarse en su lugar. */
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: monkey-blink 7s ease-in-out infinite;
+}
+
+/* El mono sentado parpadea en su propio tiempo */
+.monkey-sit .monkey-eye {
+  animation-duration: 5.5s;
+  animation-delay: 1.2s;
+}
+
+@keyframes monkey-blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  96.5% { transform: scaleY(0.1); }
+}
+
+/* Estados: se activan desde el JS al tocar el mono */
+.monkey-tongue,
+.eye-wink {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-monkey.is-tongue .monkey-tongue {
+  opacity: 1;
+  animation: monkey-tongue 0.5s ease-out;
+}
+
+@keyframes monkey-tongue {
+  0% { transform: scaleY(0.2); }
+  60% { transform: scaleY(1.15); }
+  100% { transform: scaleY(1); }
+}
+
+.monkey-tongue {
+  transform-origin: 120px 234px;
+}
+
+.hero-monkey.is-wink .eye-wink {
+  opacity: 1;
+}
+
+.hero-monkey.is-wink .monkey-eye-right .eye-open,
+.hero-monkey.is-wink .monkey-eye-right .pupil {
+  opacity: 0;
+}
+
+/* Se tapa los ojos con sus propias manos y despues espia */
+.hero-monkey.is-shy .monkey-arm-left {
+  animation: monkey-shy-left 1.7s ease-in-out;
+}
+
+.hero-monkey.is-shy .monkey-arm-right {
+  animation: monkey-shy-right 1.7s ease-in-out;
+}
+
+@keyframes monkey-shy-left {
+  0% { transform: none; }
+  20%, 58% { transform: translate(22px, -26px); }
+  70%, 88% { transform: translate(22px, -8px); }
+  100% { transform: none; }
+}
+
+@keyframes monkey-shy-right {
+  0% { transform: none; }
+  20%, 88% { transform: translate(-22px, -26px); }
+  100% { transform: none; }
+}
+
+.hero-monkey.is-shy .monkey-eye {
+  animation: none;
+}
+
+/* Saluda levantando la mano y agitandola */
+.hero-monkey.is-waving .monkey-arm-right {
+  animation: monkey-wave 2.2s ease-in-out;
+  transform-origin: 50% 6%;
+}
+
+@keyframes monkey-wave {
+  0% { transform: rotate(0deg); }
+  16% { transform: rotate(-42deg); }
+  30% { transform: rotate(-24deg); }
+  44% { transform: rotate(-46deg); }
+  58% { transform: rotate(-26deg); }
+  72% { transform: rotate(-44deg); }
+  88% { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hero-monkey.is-waving .monkey-head {
+  animation: monkey-wave-head 2.2s ease-in-out;
+  transform-origin: 120px 180px;
+}
+
+@keyframes monkey-wave-head {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-5deg); }
+  60% { transform: rotate(4deg); }
+}
+
+/* Las pupilas siguen el cursor */
+.pupil {
+  transform: translate(var(--eye-x, 0px), var(--eye-y, 0px));
+  transition: transform 0.18s ease-out;
+}
+
+@media (max-width: 900px) {
+  /* En pantallas angostas el menu ocupa el lado del nombre */
+  .hero-monkey {
+    left: auto;
+    right: 26px;
+    width: 80px;
+  }
+
+  .monkey-branch {
+    width: 128%;
+    top: 5px;
+  }
+
+  /* En la barra del celular no hay lugar sin estorbar: al bajar se va.
+     El mono sentado no existe aca, para que no alcance a asomarse. */
+  .monkey-sit {
+    display: none;
+  }
+
+  .hero-monkey.is-perched {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monkey-body,
+  .monkey-branch,
+  .monkey-arm,
+  .monkey-eye,
+  .facet,
+  .hero-monkey.is-waving .monkey-head,
+  .hero-monkey.is-waving .monkey-arm-right,
+  .hero-monkey.is-perched .monkey-sit,
+  .hero-monkey.is-perched .monkey-sit-body {
+    animation: none;
+  }
 }
 
 /* Scroll Indicator */

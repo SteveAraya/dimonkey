@@ -115,6 +115,170 @@
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#inicio" class="logo">DiMonkey</a>
+      <!-- Mascota: mono colgado de la barra -->
+      <div class="hero-monkey" id="heroMonkey" role="img" aria-label="Mono de DiMonkey colgado de cabeza">
+        <span class="monkey-branch" aria-hidden="true"></span>
+        <svg class="monkey" viewBox="0 0 240 340" fill="none">
+          <defs>
+            <linearGradient id="monkeyFur" x1="0" y1="0" x2="0.6" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#5B47AE"/>
+              <stop offset="60%" stop-color="#3B2D77"/>
+              <stop offset="100%" stop-color="#281E55"/>
+            </linearGradient>
+            <linearGradient id="monkeyFace" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#A88BFF"/>
+              <stop offset="100%" stop-color="#6A4FC4"/>
+            </linearGradient>
+            <linearGradient id="monkeyEye" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#00E5FF"/>
+              <stop offset="100%" stop-color="#7B2FFF"/>
+            </linearGradient>
+            <linearGradient id="monkeyEdge" gradientUnits="userSpaceOnUse" x1="20" y1="20" x2="220" y2="320">
+              <stop offset="0%" stop-color="#7B2FFF"/>
+              <stop offset="50%" stop-color="#00E5FF"/>
+              <stop offset="100%" stop-color="#FF6B35"/>
+            </linearGradient>
+            <radialGradient id="monkeyHalo">
+              <stop offset="0%" stop-color="#7B2FFF" stop-opacity="0.32"/>
+              <stop offset="70%" stop-color="#00E5FF" stop-opacity="0.06"/>
+              <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="monkeyHeadClip">
+              <circle cx="120" cy="238" r="78"/>
+            </clipPath>
+          </defs>
+
+          <circle cx="120" cy="230" r="130" fill="url(#monkeyHalo)"/>
+
+          <g class="monkey-body">
+            <!-- Cola enroscada en la barra -->
+            <path d="M132 96 C 186 92 206 46 176 26 C 160 16 146 30 156 44" stroke="#3B2D77" stroke-width="13" stroke-linecap="round"/>
+            <path d="M132 96 C 186 92 206 46 176 26 C 160 16 146 30 156 44" stroke="url(#monkeyEdge)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+
+            <!-- Piernas agarradas de la barra -->
+            <path d="M102 96 C 88 66 94 34 104 20" stroke="#3B2D77" stroke-width="21" stroke-linecap="round"/>
+            <path d="M138 96 C 152 66 146 34 136 20" stroke="#3B2D77" stroke-width="21" stroke-linecap="round"/>
+            <ellipse cx="104" cy="20" rx="17" ry="12" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="2"/>
+            <ellipse cx="136" cy="20" rx="17" ry="12" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="2"/>
+            <path d="M96 27 L96 33 M104 29 L104 35 M112 27 L112 33" stroke="#2A2150" stroke-width="3" stroke-linecap="round"/>
+            <path d="M128 27 L128 33 M136 29 L136 35 M144 27 L144 33" stroke="#2A2150" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Torso -->
+            <ellipse cx="120" cy="130" rx="38" ry="48" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.4"/>
+            <ellipse cx="120" cy="140" rx="24" ry="30" fill="url(#monkeyFace)" opacity="0.35"/>
+
+            <!-- Orejas -->
+            <circle cx="46" cy="224" r="26" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.4"/>
+            <circle cx="48" cy="224" r="13" fill="#FF6B35" opacity="0.5"/>
+            <circle cx="194" cy="224" r="26" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.4"/>
+            <circle cx="192" cy="224" r="13" fill="#FF6B35" opacity="0.5"/>
+
+            <!-- Cabeza: cuelga de cabeza, hocico arriba y ojos abajo -->
+            <g class="monkey-head">
+              <circle cx="120" cy="238" r="78" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.8"/>
+              <g clip-path="url(#monkeyHeadClip)">
+                <path class="facet" d="M120 160 L60 188 L120 232 Z" fill="#FFFFFF" style="--facet-o: 0.06"/>
+                <path class="facet" d="M120 160 L180 188 L120 232 Z" fill="#00E5FF" style="--facet-o: 0.05"/>
+                <path class="facet" d="M42 238 L74 310 L120 268 Z" fill="#7B2FFF" style="--facet-o: 0.12"/>
+                <path class="facet" d="M198 238 L166 310 L120 268 Z" fill="#000000" style="--facet-o: 0.14"/>
+              </g>
+
+              <!-- Hocico -->
+              <ellipse cx="120" cy="206" rx="47" ry="34" fill="url(#monkeyFace)" stroke="url(#monkeyEdge)" stroke-width="1.6" opacity="0.95"/>
+              <ellipse cx="120" cy="196" rx="9" ry="7" fill="#FF6B35" opacity="0.8"/>
+              <circle cx="116" cy="197" r="1.8" fill="#1A1430" opacity="0.7"/>
+              <circle cx="124" cy="197" r="1.8" fill="#1A1430" opacity="0.7"/>
+              <ellipse cx="64" cy="250" rx="11" ry="7" fill="#FF6B35" opacity="0.2"/>
+              <ellipse cx="176" cy="250" rx="11" ry="7" fill="#FF6B35" opacity="0.2"/>
+              <path d="M100 224 Q120 240 140 224" stroke="#1A1430" stroke-width="5" stroke-linecap="round"/>
+              <path class="monkey-tongue" d="M112 234 Q120 264 128 234 Z" fill="#FF6B35" opacity="0.9"/>
+
+              <g class="monkey-eye monkey-eye-left">
+                <ellipse class="eye-open" cx="94" cy="266" rx="17" ry="14" fill="url(#monkeyEye)"/>
+                <circle class="pupil" cx="94" cy="266" r="6.5" fill="#12101F"/>
+                <circle cx="89" cy="261" r="2.6" fill="#FFFFFF" opacity="0.9"/>
+              </g>
+              <g class="monkey-eye monkey-eye-right">
+                <ellipse class="eye-open" cx="146" cy="266" rx="17" ry="14" fill="url(#monkeyEye)"/>
+                <circle class="pupil" cx="146" cy="266" r="6.5" fill="#12101F"/>
+                <circle cx="141" cy="261" r="2.6" fill="#FFFFFF" opacity="0.9"/>
+              </g>
+              <path class="eye-wink" d="M131 264 Q146 254 161 266" stroke="#00E5FF" stroke-width="5" stroke-linecap="round"/>
+
+              <path d="M92 292 Q120 306 148 292" stroke="#1A1430" stroke-width="7" stroke-linecap="round" opacity="0.65"/>
+              <path d="M74 280 Q88 288 101 283" stroke="#1A1430" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+              <path d="M166 280 Q152 288 139 283" stroke="#1A1430" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+              <path d="M106 310 C 102 322 113 326 111 336 M120 314 C 118 326 127 331 124 340 M134 310 C 138 322 128 327 130 336" stroke="#4A3A94" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- Brazos colgando por delante -->
+            <g class="monkey-arm monkey-arm-left">
+              <path d="M92 150 C 72 186 66 244 72 286" stroke="#4A3A94" stroke-width="20" stroke-linecap="round"/>
+              <ellipse cx="72" cy="294" rx="18" ry="15" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="2"/>
+              <path d="M64 302 L64 308 M72 304 L72 310 M80 302 L80 308" stroke="#2A2150" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <g class="monkey-arm monkey-arm-right">
+              <path d="M148 150 C 168 186 174 244 168 286" stroke="#4A3A94" stroke-width="20" stroke-linecap="round"/>
+              <ellipse cx="168" cy="294" rx="18" ry="15" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="2"/>
+              <path d="M160 302 L160 308 M168 304 L168 310 M176 302 L176 308" stroke="#2A2150" stroke-width="3" stroke-linecap="round"/>
+            </g>
+
+          </g>
+        </svg>
+
+        <svg class="monkey-sit" viewBox="0 0 200 170" fill="none" aria-hidden="true">
+          <g class="monkey-sit-body">
+            <!-- Cola enroscada -->
+            <path d="M132 140 C 168 142 180 116 164 104 C 154 97 144 106 150 116" stroke="#3B2D77" stroke-width="9" stroke-linecap="round"/>
+            <path d="M132 140 C 168 142 180 116 164 104 C 154 97 144 106 150 116" stroke="url(#monkeyEdge)" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+
+            <!-- Cuerpo sentado -->
+            <ellipse cx="100" cy="128" rx="44" ry="32" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.2"/>
+            <ellipse cx="100" cy="134" rx="26" ry="20" fill="url(#monkeyFace)" opacity="0.35"/>
+            <ellipse cx="68" cy="150" rx="17" ry="11" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="1.8"/>
+            <ellipse cx="132" cy="150" rx="17" ry="11" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="1.8"/>
+            <path d="M62 156 L62 160 M68 157 L68 161 M74 156 L74 160" stroke="#2A2150" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M126 156 L126 160 M132 157 L132 161 M138 156 L138 160" stroke="#2A2150" stroke-width="2.4" stroke-linecap="round"/>
+
+            <!-- Brazos apoyados -->
+            <path d="M66 112 C 52 124 50 138 56 146" stroke="#4A3A94" stroke-width="13" stroke-linecap="round"/>
+            <path d="M134 112 C 148 124 150 138 144 146" stroke="#4A3A94" stroke-width="13" stroke-linecap="round"/>
+            <ellipse cx="55" cy="148" rx="9" ry="7" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="1.6"/>
+            <ellipse cx="145" cy="148" rx="9" ry="7" fill="#4A3A94" stroke="url(#monkeyEdge)" stroke-width="1.6"/>
+
+            <!-- Orejas -->
+            <circle cx="52" cy="62" r="17" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.2"/>
+            <circle cx="54" cy="62" r="8" fill="#FF6B35" opacity="0.5"/>
+            <circle cx="148" cy="62" r="17" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.2"/>
+            <circle cx="146" cy="62" r="8" fill="#FF6B35" opacity="0.5"/>
+
+            <!-- Cabeza -->
+            <g>
+              <circle cx="100" cy="62" r="50" fill="url(#monkeyFur)" stroke="url(#monkeyEdge)" stroke-width="2.4"/>
+              <path d="M90 16 C 88 6 98 6 97 -1 M100 13 C 99 3 108 4 106 -3 M110 16 C 112 7 120 9 117 1" stroke="#4A3A94" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <ellipse cx="100" cy="82" rx="30" ry="22" fill="url(#monkeyFace)" stroke="url(#monkeyEdge)" stroke-width="1.4" opacity="0.95"/>
+              <ellipse cx="100" cy="76" rx="6" ry="4.5" fill="#FF6B35" opacity="0.8"/>
+              <circle cx="97" cy="76" r="1.3" fill="#1A1430" opacity="0.7"/>
+              <circle cx="103" cy="76" r="1.3" fill="#1A1430" opacity="0.7"/>
+              <path d="M88 90 Q100 100 112 90" stroke="#1A1430" stroke-width="3.4" stroke-linecap="round"/>
+              <g class="monkey-eye">
+                <ellipse class="eye-open" cx="82" cy="50" rx="11" ry="9" fill="url(#monkeyEye)"/>
+                <circle class="pupil" cx="82" cy="50" r="4.2" fill="#12101F"/>
+                <circle cx="79" cy="47" r="1.8" fill="#FFFFFF" opacity="0.9"/>
+              </g>
+              <g class="monkey-eye">
+                <ellipse class="eye-open" cx="118" cy="50" rx="11" ry="9" fill="url(#monkeyEye)"/>
+                <circle class="pupil" cx="118" cy="50" r="4.2" fill="#12101F"/>
+                <circle cx="115" cy="47" r="1.8" fill="#FFFFFF" opacity="0.9"/>
+              </g>
+              <path d="M72 36 Q82 31 92 36" stroke="#1A1430" stroke-width="3" stroke-linecap="round" opacity="0.45" fill="none"/>
+              <path d="M128 36 Q118 31 108 36" stroke="#1A1430" stroke-width="3" stroke-linecap="round" opacity="0.45" fill="none"/>
+              <ellipse cx="66" cy="72" rx="8" ry="5" fill="#FF6B35" opacity="0.2"/>
+              <ellipse cx="134" cy="72" rx="8" ry="5" fill="#FF6B35" opacity="0.2"/>
+            </g>
+          </g>
+        </svg>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
