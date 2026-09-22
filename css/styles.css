@@ -932,9 +932,6 @@ img { max-width: 100%; display: block; }
   transition: opacity var(--transition-base);
 }
 
-.support-card:hover::before {
-  opacity: 0.6;
-}
 
 @keyframes support-border-spin {
   to { --support-angle: 360deg; }
@@ -950,12 +947,16 @@ img { max-width: 100%; display: block; }
   border-radius: 26.5px;
   background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   overflow: hidden;
+  /* Safari (iOS) no siempre recorta las capas internas con el borde redondeado */
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
 }
 
 /* Cuadrícula tipo HUD, muy sutil */
 .support-grid {
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
@@ -969,6 +970,7 @@ img { max-width: 100%; display: block; }
 .support-spotlight {
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background: radial-gradient(420px circle at var(--mx, 75%) var(--my, 40%),
     rgba(123, 47, 255, 0.18), rgba(0, 229, 255, 0.06) 40%, transparent 70%);
   pointer-events: none;
@@ -1050,19 +1052,11 @@ img { max-width: 100%; display: block; }
   85%, 100% { left: 130%; }
 }
 
-.btn-support:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 34px rgba(255, 107, 53, 0.4), 0 0 24px rgba(123, 47, 255, 0.45);
-}
-
 .btn-support-cup {
   transition: transform var(--transition-base);
   transform-origin: 50% 80%;
 }
 
-.btn-support:hover .btn-support-cup {
-  transform: rotate(-18deg);
-}
 
 .support-note {
   margin-top: 16px;
@@ -1116,10 +1110,6 @@ img { max-width: 100%; display: block; }
   transition: filter var(--transition-base);
 }
 
-.support-card:hover .support-cup {
-  filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.7)) drop-shadow(0 0 36px rgba(255, 107, 53, 0.45));
-}
-
 @keyframes support-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -1146,6 +1136,27 @@ img { max-width: 100%; display: block; }
   30% { opacity: 1; }
   70% { stroke-dashoffset: 0; opacity: 0.8; }
   100% { stroke-dashoffset: -60; opacity: 0; transform: translateY(-10px); }
+}
+
+/* Estados de hover solo donde hay mouse real: en tactil, iOS toma el
+   primer toque como hover y obliga a tocar dos veces para activar. */
+@media (hover: hover) and (pointer: fine) {
+  .support-card:hover::before {
+    opacity: 0.6;
+  }
+
+  .support-card:hover .support-cup {
+    filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.7)) drop-shadow(0 0 36px rgba(255, 107, 53, 0.45));
+  }
+
+  .btn-support:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px rgba(255, 107, 53, 0.4), 0 0 24px rgba(123, 47, 255, 0.45);
+  }
+
+  .btn-support:hover .btn-support-cup {
+    transform: rotate(-18deg);
+  }
 }
 
 @media (max-width: 768px) {
