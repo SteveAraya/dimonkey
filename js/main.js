@@ -56,7 +56,12 @@
       'footer.privacy': 'Privacy',
       'footer.contact': 'Contact',
       'footer.copyright': '© ' + new Date().getFullYear() + ' DiMonkey. All rights reserved.',
-      'footer.love': 'Built with 💜 from Costa Rica'
+      'footer.love': 'Built with 💜 from Costa Rica',
+      'footer.support': 'Support us ☕',
+      'support.title': 'Fuel the <span class="gradient-text">monkey</span>',
+      'support.text': 'Keeping these projects alive has real costs: servers, domains and many hours of work. If something we make helps you, you can buy us a coffee. It\'s completely voluntary, and it means a lot.',
+      'support.button': 'Buy us a coffee',
+      'support.note': 'Secure payment via Ko-fi · PayPal or card'
     },
     es: {
       'nav.home': 'Inicio',
@@ -104,7 +109,12 @@
       'footer.privacy': 'Privacidad',
       'footer.contact': 'Contacto',
       'footer.copyright': '© ' + new Date().getFullYear() + ' DiMonkey. Todos los derechos reservados.',
-      'footer.love': 'Hecho con 💜 desde Costa Rica'
+      'footer.love': 'Hecho con 💜 desde Costa Rica',
+      'footer.support': 'Apoyanos ☕',
+      'support.title': 'Cargale <span class="gradient-text">combustible</span> al mono',
+      'support.text': 'Mantener estos proyectos vivos tiene costos reales: servidores, dominios y muchas horas de trabajo. Si algo de lo que hacemos te sirve, podés invitarnos un café. Es totalmente voluntario y significa muchísimo.',
+      'support.button': 'Invitanos un café',
+      'support.note': 'Pago seguro con Ko-fi · PayPal o tarjeta'
     }
   };
 
@@ -186,6 +196,7 @@
     initHeroCanvas();
     initScrollAnimations();
     initStatCounters();
+    initSupportSpotlight();
   }
 
   /* =========================
@@ -460,6 +471,24 @@
     }
 
     requestAnimationFrame(step);
+  }
+
+  /* =========================
+     SUPPORT CARD SPOTLIGHT
+     ========================= */
+  function initSupportSpotlight() {
+    var card = document.querySelector('.support-card-inner');
+    if (!card || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.removeProperty('--mx');
+      card.style.removeProperty('--my');
+    });
   }
 
   /* =========================

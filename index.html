@@ -357,6 +357,53 @@
       <a href="mailto:hola@dimonkey.com" class="btn-primary btn-lg animate-on-scroll" data-animation="slide-up" data-delay="200">
         hola@dimonkey.com
       </a>
+
+      <!-- Support Card (Ko-fi) -->
+      <div class="support-card animate-on-scroll" data-animation="slide-up" data-delay="300" id="apoyo">
+        <div class="support-card-inner">
+          <div class="support-spotlight" aria-hidden="true"></div>
+          <div class="support-grid" aria-hidden="true"></div>
+
+          <div class="support-content">
+            <span class="support-label">// fuel_the_monkey()</span>
+            <h3 class="support-title" data-i18n="support.title" data-i18n-html="true">
+              Fuel the <span class="gradient-text">monkey</span>
+            </h3>
+            <p class="support-text" data-i18n="support.text">
+              Keeping these projects alive has real costs: servers, domains and many hours of work. If something we make helps you, you can buy us a coffee. It's completely voluntary, and it means a lot.
+            </p>
+            <a href="https://ko-fi.com/dimonkey" target="_blank" rel="noopener noreferrer" class="btn-support">
+              <svg class="btn-support-cup" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V8z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5c-.6.8-.6 1.7 0 2.5M12 2.5c-.6.8-.6 1.7 0 2.5"/></svg>
+              <span data-i18n="support.button">Buy us a coffee</span>
+            </a>
+            <p class="support-note" data-i18n="support.note">Secure payment via Ko-fi · PayPal or card</p>
+          </div>
+
+          <div class="support-visual" aria-hidden="true">
+            <div class="support-orbit"></div>
+            <svg class="support-cup" viewBox="0 0 200 200" fill="none">
+              <defs>
+                <linearGradient id="cupGradient" gradientUnits="userSpaceOnUse" x1="36" y1="80" x2="164" y2="172">
+                  <stop offset="0%" stop-color="#7B2FFF"/>
+                  <stop offset="55%" stop-color="#00E5FF"/>
+                  <stop offset="100%" stop-color="#FF6B35"/>
+                </linearGradient>
+                <linearGradient id="steamGradient" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#7B2FFF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="steam" d="M78 70 C 68 58, 88 48, 78 34" stroke="url(#steamGradient)" stroke-width="4" stroke-linecap="round"/>
+              <path class="steam steam-2" d="M100 68 C 90 54, 110 44, 100 26" stroke="url(#steamGradient)" stroke-width="4" stroke-linecap="round"/>
+              <path class="steam steam-3" d="M122 70 C 112 58, 132 48, 122 34" stroke="url(#steamGradient)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M50 84 H150 V116 A40 40 0 0 1 110 156 H90 A40 40 0 0 1 50 116 Z" stroke="url(#cupGradient)" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M150 94 H160 A16 16 0 0 1 160 126 H148" stroke="url(#cupGradient)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M36 170 H164" stroke="url(#cupGradient)" stroke-width="5" stroke-linecap="round"/>
+              <text x="100" y="128" text-anchor="middle" class="cup-letter">D</text>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -369,6 +416,7 @@
           <a href="https://www.imhomi.com/" target="_blank" rel="noopener noreferrer">ImHomi</a>
           <a href="#contacto" data-i18n="footer.privacy">Privacy</a>
           <a href="#contacto" data-i18n="footer.contact">Contact</a>
+          <a href="https://ko-fi.com/dimonkey" target="_blank" rel="noopener noreferrer" data-i18n="footer.support">Support us ☕</a>
         </div>
         <div class="footer-socials">
           <a href="#" aria-label="Twitter" class="social-icon">

@@ -899,6 +899,293 @@ img { max-width: 100%; display: block; }
   font-size: 1.05rem;
 }
 
+/* ---- Support Card (Ko-fi) ---- */
+@property --support-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.support-card {
+  position: relative;
+  max-width: 920px;
+  margin: 72px auto 0;
+  padding: 1.5px;
+  border-radius: 28px;
+  background: conic-gradient(from var(--support-angle),
+    rgba(123, 47, 255, 0.9), rgba(0, 229, 255, 0.9), rgba(255, 107, 53, 0.9),
+    rgba(123, 47, 255, 0.15) 70%, rgba(123, 47, 255, 0.9));
+  animation: support-border-spin 6s linear infinite;
+  text-align: left;
+}
+
+/* Halo de energía detrás de la tarjeta */
+.support-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(22px);
+  opacity: 0.35;
+  z-index: -1;
+  transition: opacity var(--transition-base);
+}
+
+.support-card:hover::before {
+  opacity: 0.6;
+}
+
+@keyframes support-border-spin {
+  to { --support-angle: 360deg; }
+}
+
+.support-card-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 48px 44px;
+  border-radius: 26.5px;
+  background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  overflow: hidden;
+}
+
+/* Cuadrícula tipo HUD, muy sutil */
+.support-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 75% 50%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 75% 50%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Luz que sigue al cursor */
+.support-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px circle at var(--mx, 75%) var(--my, 40%),
+    rgba(123, 47, 255, 0.18), rgba(0, 229, 255, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.support-content {
+  position: relative;
+  z-index: 1;
+}
+
+.support-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  border-radius: 50px;
+}
+
+.support-title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.support-title .gradient-text {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary) 55%, var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.support-text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+
+/* ---- Support Button ---- */
+.btn-support {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: var(--gradient-accent);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 1.02rem;
+  font-weight: 600;
+  border-radius: 50px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform var(--transition-fast), box-shadow var(--transition-base);
+}
+
+.btn-support::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: support-shine 4.5s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes support-shine {
+  0%, 60% { left: -60%; }
+  85%, 100% { left: 130%; }
+}
+
+.btn-support:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 34px rgba(255, 107, 53, 0.4), 0 0 24px rgba(123, 47, 255, 0.45);
+}
+
+.btn-support-cup {
+  transition: transform var(--transition-base);
+  transform-origin: 50% 80%;
+}
+
+.btn-support:hover .btn-support-cup {
+  transform: rotate(-18deg);
+}
+
+.support-note {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+}
+
+/* ---- Support Cup (neon) ---- */
+.support-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  max-width: 260px;
+  width: 100%;
+  justify-self: center;
+}
+
+.support-orbit {
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 229, 255, 0.25);
+  animation: support-orbit-spin 24s linear infinite;
+}
+
+.support-orbit::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 14px var(--color-accent);
+}
+
+@keyframes support-orbit-spin {
+  to { transform: rotate(360deg); }
+}
+
+.support-cup {
+  position: relative;
+  width: 78%;
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45)) drop-shadow(0 0 26px rgba(123, 47, 255, 0.35));
+  animation: support-float 5s ease-in-out infinite;
+  transition: filter var(--transition-base);
+}
+
+.support-card:hover .support-cup {
+  filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.7)) drop-shadow(0 0 36px rgba(255, 107, 53, 0.45));
+}
+
+@keyframes support-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.cup-letter {
+  font-family: var(--font-main);
+  font-size: 34px;
+  font-weight: 700;
+  fill: url(#cupGradient);
+}
+
+.steam {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: support-steam 2.8s ease-in-out infinite;
+}
+
+.steam-2 { animation-delay: 0.5s; }
+.steam-3 { animation-delay: 1s; }
+
+@keyframes support-steam {
+  0% { stroke-dashoffset: 60; opacity: 0; transform: translateY(6px); }
+  30% { opacity: 1; }
+  70% { stroke-dashoffset: 0; opacity: 0.8; }
+  100% { stroke-dashoffset: -60; opacity: 0; transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .support-card {
+    margin-top: 56px;
+    text-align: center;
+  }
+
+  .support-card-inner {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 36px 24px 32px;
+  }
+
+  .support-visual {
+    order: -1;
+    max-width: 170px;
+  }
+
+  .support-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .support-card,
+  .support-orbit,
+  .support-cup,
+  .steam,
+  .btn-support::after {
+    animation: none;
+  }
+
+  .steam {
+    stroke-dashoffset: 0;
+    opacity: 0.7;
+  }
+}
+
 /* ==============================
    FOOTER
    ============================== */
