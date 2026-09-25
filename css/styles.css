@@ -1226,19 +1226,10 @@ img { max-width: 100%; display: block; }
     rgba(123, 47, 255, 0.15) 70%, rgba(123, 47, 255, 0.9));
   animation: support-border-spin 6s linear infinite;
   text-align: left;
-}
-
-/* Halo de energía detrás de la tarjeta */
-.support-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: inherit;
-  filter: blur(22px);
-  opacity: 0.35;
-  z-index: -1;
-  transition: opacity var(--transition-base);
+  /* El halo va como sombra y no como capa borrosa detrás: asi sigue
+     siempre la curva de la tarjeta (Safari no redondeaba esa capa). */
+  box-shadow: 0 0 34px rgba(123, 47, 255, 0.3), 0 0 60px rgba(0, 229, 255, 0.12);
+  transition: box-shadow var(--transition-base);
 }
 
 
@@ -1450,8 +1441,8 @@ img { max-width: 100%; display: block; }
 /* Estados de hover solo donde hay mouse real: en tactil, iOS toma el
    primer toque como hover y obliga a tocar dos veces para activar. */
 @media (hover: hover) and (pointer: fine) {
-  .support-card:hover::before {
-    opacity: 0.6;
+  .support-card:hover {
+    box-shadow: 0 0 44px rgba(123, 47, 255, 0.45), 0 0 80px rgba(0, 229, 255, 0.2);
   }
 
   .support-card:hover .support-cup {
