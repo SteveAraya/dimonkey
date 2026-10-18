@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="DiMonkey is a Latin American startup building digital products that transform people's lives. Our first product: ImHomi, the app to find your ideal home in Costa Rica.">
-  <meta name="keywords" content="DiMonkey, startup, Costa Rica, ImHomi, digital products, rent, apartments, Latin American unicorn">
+  <meta name="keywords" content="DiMonkey, startup, Costa Rica, ImHomi, Go-Gyms, gym management, digital products, rent, apartments, Latin American unicorn">
   <meta name="author" content="DiMonkey">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.dimonkey.com/">
@@ -381,21 +381,54 @@
           </div>
         </div>
 
-        <!-- Coming Soon Card -->
-        <div class="product-card glass-card card-coming-soon animate-on-scroll" data-animation="slide-up" data-delay="300">
+        <!-- Go-Gyms Card -->
+        <div class="product-card glass-card animate-on-scroll" data-animation="slide-up" data-delay="300">
           <div class="product-card-glow"></div>
           <div class="product-header">
             <div class="product-logo">
-              <span class="product-logo-icon">✨</span>
-              <h3 data-i18n="products.next_title">Next Solution</h3>
+              <span class="product-logo-icon">🏋️</span>
+              <h3>Go-Gyms</h3>
             </div>
             <div class="product-badges">
-              <span class="badge-small badge-dev" data-i18n="products.in_dev">🔨 In development</span>
+              <span class="badge-small">💪 Fitness</span>
+              <span class="badge-small badge-dev" data-i18n="products.gogyms_status">🔨 In development</span>
             </div>
           </div>
-          <p class="product-description" data-i18n="products.next_desc">
-            Something big is coming. Stay tuned.
+          <p class="product-description" data-i18n="products.gogyms_desc">
+            The gym management platform that works for you. Members, memberships, payments, routines and schedules in one place, for owners, staff and members alike.
           </p>
+          <div class="product-features">
+            <span class="product-feature" data-i18n="products.gogyms_f1">🏢 Multi-gym</span>
+            <span class="product-feature" data-i18n="products.gogyms_f2">💳 Memberships &amp; payments</span>
+            <span class="product-feature" data-i18n="products.gogyms_f3">📈 Progress tracking</span>
+          </div>
+        </div>
+
+        <!-- Next Solution Teaser -->
+        <div class="product-next glass-card animate-on-scroll" data-animation="slide-up" data-delay="450">
+          <svg class="product-next-icon" viewBox="2 0 60 64" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="rocketGradient" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="60">
+                <stop offset="0" stop-color="#00E5FF"/>
+                <stop offset="1" stop-color="#7B2FFF"/>
+              </linearGradient>
+            </defs>
+            <g stroke="url(#rocketGradient)" stroke-width="1.6" stroke-dasharray="3 2.6" stroke-linejoin="round">
+              <path d="M32 4c10 8 12 20 10 36H22C20 24 22 12 32 4z"/>
+              <path d="M22 30l-8 12v8l8-4M42 30l8 12v8l-8-4M26 40h12l-2 6h-8z"/>
+            </g>
+            <g class="rocket-build" fill="url(#rocketGradient)" stroke="url(#rocketGradient)" stroke-width="1.6" stroke-linejoin="round">
+              <path d="M32 4c10 8 12 20 10 36H22C20 24 22 12 32 4z"/>
+              <path d="M22 30l-8 12v8l8-4zM42 30l8 12v8l-8-4zM26 40h12l-2 6h-8z"/>
+            </g>
+            <circle cx="32" cy="20" r="4.5" fill="#0A0A0F" stroke="#5fd8ff" stroke-width="1.6"/>
+            <path class="rocket-spark" d="M52 5c.7 4.9 2.1 6.3 7 7-4.9.7-6.3 2.1-7 7-.7-4.9-2.1-6.3-7-7 4.9-.7 6.3-2.1 7-7z" fill="#00E5FF"/>
+          </svg>
+          <div class="product-next-text">
+            <h3 data-i18n="products.next_title">Next Solution</h3>
+            <p data-i18n="products.next_desc">Something big is coming. Stay tuned.</p>
+          </div>
+          <span class="badge-small badge-dev" data-i18n="products.in_dev">🔨 In development</span>
           <div class="coming-soon-shimmer"></div>
         </div>
       </div>
@@ -492,7 +525,7 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item animate-on-scroll" data-animation="fade-in">
-          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-number" data-target="3">0</span>
           <span class="stat-label" data-i18n="stats.product">Products in progress</span>
         </div>
         <div class="stat-item animate-on-scroll" data-animation="fade-in" data-delay="100">

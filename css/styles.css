@@ -939,8 +939,70 @@ img { max-width: 100%; display: block; }
   background: rgba(0, 229, 255, 0.1);
 }
 
-.card-coming-soon {
+/* ---- Next Solution Teaser ---- */
+.product-next {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 36px;
   border-style: dashed;
+  border-color: rgba(0, 229, 255, 0.18);
+  transition: border-color var(--transition-base);
+}
+
+.product-next:hover {
+  border-color: rgba(0, 229, 255, 0.35);
+}
+
+.product-next-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  overflow: visible;
+}
+
+/* The rocket assembles from the nose down, holds, then starts over */
+.rocket-build {
+  clip-path: inset(0 0 48% 0);
+  animation: rocket-build 4.5s ease-in-out infinite;
+}
+
+.rocket-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rocket-twinkle 1.6s ease-in-out infinite;
+}
+
+@keyframes rocket-build {
+  0%, 10% { clip-path: inset(0 0 48% 0); }
+  55%, 88% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 48% 0); }
+}
+
+@keyframes rocket-twinkle {
+  0%, 100% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.product-next-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-next-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.product-next-text p {
+  color: var(--text-secondary);
+}
+
+.product-next .badge-small {
+  flex-shrink: 0;
 }
 
 .coming-soon-shimmer {
@@ -949,7 +1011,7 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(
     110deg,
     transparent 30%,
-    rgba(0, 229, 255, 0.03) 50%,
+    rgba(0, 229, 255, 0.04) 50%,
     transparent 70%
   );
   animation: shimmer 3s infinite;
@@ -959,6 +1021,23 @@ img { max-width: 100%; display: block; }
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+@media (max-width: 768px) {
+  .product-next {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-shimmer,
+  .rocket-build,
+  .rocket-spark {
+    animation: none;
+  }
 }
 
 .arrow {
