@@ -65,11 +65,18 @@
           "@type": "Country",
           "name": "Costa Rica"
         },
-        "subOrganization": {
-          "@type": "Organization",
-          "name": "ImHomi",
-          "url": "https://www.imhomi.com/"
-        },
+        "subOrganization": [
+          {
+            "@type": "Organization",
+            "name": "ImHomi",
+            "url": "https://www.imhomi.com/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Go-Gyms",
+            "url": "https://www.go-gyms.com/"
+          }
+        ],
         "founder": [
           { "@id": "https://www.dimonkey.com/#steve" },
           { "@id": "https://www.dimonkey.com/#alonso" }
@@ -386,7 +393,7 @@
           <div class="product-card-glow"></div>
           <div class="product-header">
             <div class="product-logo">
-              <span class="product-logo-icon">🏋️</span>
+              <svg class="product-logo-icon product-logo-svg" viewBox="14.26 -5.74 91.49 91.49" aria-hidden="true"><g transform="rotate(-35 60 40)" fill="none" stroke-linecap="round" stroke-width="10"><path d="M46.51 14.4A26 26 0 1 0 68 40" stroke="#9B5DE5"/><path d="M73.49 65.6A26 26 0 1 0 52 40" stroke="#3DD6CB"/><path d="M42 40H78" stroke="#F53756"/></g></svg>
               <h3>Go-Gyms</h3>
             </div>
             <div class="product-badges">
@@ -395,13 +402,16 @@
             </div>
           </div>
           <p class="product-description" data-i18n="products.gogyms_desc">
-            The gym management platform that works for you. Members, memberships, payments, routines and schedules in one place, for owners, staff and members alike.
+            A new way to train: one account for all your gyms, with your workouts, records and goals, and the tools every gym needs day to day.
           </p>
           <div class="product-features">
             <span class="product-feature" data-i18n="products.gogyms_f1">🏢 Multi-gym</span>
             <span class="product-feature" data-i18n="products.gogyms_f2">💳 Memberships &amp; payments</span>
             <span class="product-feature" data-i18n="products.gogyms_f3">📈 Progress tracking</span>
           </div>
+          <a href="https://www.go-gyms.com/" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">
+            <span data-i18n="products.learn_more">Learn more</span> <span class="arrow">→</span>
+          </a>
         </div>
 
         <!-- Next Solution Teaser -->
@@ -614,6 +624,7 @@
         <a href="#inicio" class="logo">DiMonkey</a>
         <div class="footer-links">
           <a href="https://www.imhomi.com/" target="_blank" rel="noopener noreferrer">ImHomi</a>
+          <a href="https://www.go-gyms.com/" target="_blank" rel="noopener noreferrer">Go-Gyms</a>
           <a href="#contacto" data-i18n="footer.privacy">Privacy</a>
           <a href="#contacto" data-i18n="footer.contact">Contact</a>
           <a href="https://ko-fi.com/dimonkey" target="_blank" rel="noopener noreferrer" data-i18n="footer.support">Support us ☕</a>
