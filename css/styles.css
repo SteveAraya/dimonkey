@@ -972,10 +972,11 @@ a,button{cursor:pointer}
 .x-orb-label b{color:#fff;font-weight:600;letter-spacing:.08em}
 
 /* ---------- Franja ---------- */
-.x-band{position:relative;z-index:2;margin-top:-30px;transform:rotate(-2.2deg);background:linear-gradient(90deg,rgba(123,47,255,.1),rgba(16,14,30,.94) 30%,rgba(16,14,30,.94) 70%,rgba(0,229,255,.08));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:18px 0;overflow:hidden;box-shadow:0 30px 80px -34px rgba(123,47,255,.55)}
+.x-band{position:relative;z-index:2;margin-top:-30px;transform:rotate(-2.2deg);background:linear-gradient(90deg,rgba(123,47,255,.1),rgba(16,14,30,.94) 30%,rgba(16,14,30,.94) 70%,rgba(0,229,255,.08));padding:18px 0;overflow:hidden;box-shadow:0 30px 80px -34px rgba(123,47,255,.55)}
 .x-band::before,.x-band::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#7B2FFF 18%,#25AEFF 60%,#00E5FF 82%,transparent)}
 .x-band::before{top:0}.x-band::after{bottom:0;opacity:.55}
-.x-band-track{display:flex;width:max-content;will-change:transform}
+/* Sin backdrop-filter ni will-change: en Safari, con la tira moviéndose adentro, podían dejar el texto sin dibujar. */
+.x-band-track{display:flex;width:max-content}
 .x-band-set{display:flex;align-items:center;gap:34px;padding-right:34px}
 .x-band-set span{font-size:clamp(1.3rem,2.6vw,2rem);font-weight:700;letter-spacing:-.02em;color:#fff;white-space:nowrap}
 .x-band-set span.o{color:#8E8EA3}
